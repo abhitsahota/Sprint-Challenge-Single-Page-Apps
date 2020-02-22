@@ -12,5 +12,6 @@ export default function WelcomePage() {
         />
       </header>
     </section>
+
   );
 }
