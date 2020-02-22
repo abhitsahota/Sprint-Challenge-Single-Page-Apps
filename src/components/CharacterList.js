@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Route, Link } from "react-router-dom";
+import { Card, CardTitle } from 'reactstrap';
 
-import CharacterInfo from './CharacterCard';
+
+import CharacterCard from './CharacterCard';
 import SearchForm from "./SearchForm";
 
 export default function CharacterList() {
@@ -34,13 +36,18 @@ export default function CharacterList() {
     <section className="character-list">
       <SearchForm searchQuery={searchQuery} handleChange={handleChange} placeholder='Search character names'/>
 
-      <h2>TODO: `array.map()` over your state here!</h2>
+      <h2>List of your favourite Ricky and Morty characters!</h2>
 
-      <Route path="/characters/:id" render={(charList) => <CharacterInfo {...charList} />} />
+      <Route path="/characters/:id" render={(charList) => <CharacterCard {...charList} />} />
       <ul>
         {charList.map(character => {
-        return <Link to ={`/characters/${character.id}`}><li key={character.id}>{character.name}</li></Link>;
-        })}
+          return (
+          <Link to ={`/characters/${character.id}`} key={character.id}>
+            <Card key={character.id}>
+              <CardTitle>{character.name}</CardTitle>
+            </Card>
+          </Link>
+          )})}
       </ul>
     </section>
   );

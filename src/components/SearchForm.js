@@ -1,34 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { Form, Label, Input } from 'reactstrap';
+
 
 export default function SearchForm(props) {
-  // let characters = Array.from(props.characters)
-  // let charNames = characters.map(character => {
-  //   return character.name;
-  // })
-  // console.log('search prps', charNames)
-  // const [searchTerm, setSearchTerm] = useState("");
-
-
-  // useEffect(() => {
-    
-
-  //   setSearchResults(results);
-  // }, [searchTerm]);
-
-
 
   return (
     <section className="search-form">
-      <form>
-        <label htmlFor='term'>Search: </label>
-        <input 
+      <Form>
+        <Label htmlFor='term'>Search: </Label>
+        <Input 
           id='term'
           type='text'
           name='textfield'
-          placeholder='Search character names'
+          placeholder={props.placeholder}
           value={props.searchQuery}
           onChange={props.handleChange} />
-      </form>
+      </Form>
     </section>
   );
 }

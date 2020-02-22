@@ -3,6 +3,8 @@ import { Route, Link } from "react-router-dom";
 import LocationList from './components/LocationsList';
 import WelcomePage from './components/WelcomePage';
 import CharList from './components/CharacterList';
+import { Nav, NavLink } from 'reactstrap';
+
 
 export default function App() {
   return (
@@ -10,14 +12,17 @@ export default function App() {
       <header className="ui centered">
         <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
       </header>
-      <nav className="nav-links">
 
+      <Nav className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/characters">Characters</Link>
-        </nav>
-        <Route exact path="/" component={WelcomePage} />
-        <Route path="/characters" component={CharList} />
-        <Route path="/location" component={LocationList} />
+          <Link to="/location">Locations</Link>
+      </Nav>
+
+      <Route exact path="/" component={WelcomePage} />
+      <Route exact path="/characters" component={CharList} />
+      <Route exact path="/location" component={LocationList} />
+
 
     </main>
   );
