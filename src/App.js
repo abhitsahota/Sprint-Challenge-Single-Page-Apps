@@ -3,7 +3,11 @@ import { Route, Link } from "react-router-dom";
 import LocationList from './components/LocationsList';
 import WelcomePage from './components/WelcomePage';
 import CharList from './components/CharacterList';
-import { Nav, NavLink } from 'reactstrap';
+// import { Nav } from 'reactstrap';
+
+let Navi = styled.Link`
+  padding: 1%;
+`;
 
 
 export default function App() {
