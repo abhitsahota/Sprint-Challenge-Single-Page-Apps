@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { Form, Label, Input } from 'reactstrap';
 
-export default function SearchForm() {
- 
+
+export default function SearchForm(props) {
+
   return (
     <section className="search-form">
-     // Add a search form here
+      <Form>
+        <Label htmlFor='term'>Search: </Label>
+        <Input 
+          id='term'
+          type='text'
+          name='textfield'
+          placeholder={props.placeholder}
+          value={props.searchQuery}
+          onChange={props.handleChange} />
+      </Form>
     </section>
   );
 }
